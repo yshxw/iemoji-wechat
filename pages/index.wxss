@@ -1,0 +1,34 @@
+/* pages/index.wxss */
+.gif {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+}
+
+.inputView{
+  border: 1px solid #abbcbc;
+  background-color: white;
+  border-radius: 10px;
+  width:70%;
+  height: 40px;
+  margin-left: 5px;
+  margin-right: 5px;
+  text-align: center;
+}
+
+.center{
+  display: flex;
+  justify-content: center;
+}
+
+.arrow{
+  width: 20px;
+  height: 20px;
+  padding: 4px;
+}
+
+.circle-icon {
+    background: #000000;
+    border-radius: 50%;
+}

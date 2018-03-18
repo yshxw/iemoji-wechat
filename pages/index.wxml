@@ -1,0 +1,13 @@
+<!--pages/index.wxml-->
+<image src='{{imgalist[0]}}' data-src='{{imgalist[0]}}'
+mode='aspectFill' class='gif' id="emoji" bindtap="previewImage"></image>
+<view>
+  <view style="display:flex;margin-top:10px;justify-content:center">
+       <text style="display:block" id='text_info'>第一句话</text>
+  </view>
+  <view style="display:flex;margin-top:10px; align-items: center;justify-content:center"> 
+      <image class='arrow circle-icon' src='../resource/pre.png' id='btn_pre' bindtap=''></image>
+      <input class="inputView" name="sentence" placeholder="{{placeholder}}"/>
+      <image class='arrow circle-icon' src='../resource/next.png' id='btn_next' bindtap='nextSentence'></image>
+  </view>
+</view>
