@@ -4,31 +4,35 @@
     margin-left: auto;
     margin-right: auto;
     margin-top: 20px;
+    width: 70%;
 }
 
-.inputView{
+.inputArea {
   border: 1px solid #abbcbc;
   background-color: white;
   border-radius: 10px;
-  width:70%;
-  height: 40px;
-  margin-left: 5px;
-  margin-right: 5px;
-  text-align: center;
+  height: 46px;
+  margin-left: 6%;
+  margin-right: 6%;
+  margin-top:10px; 
+  display:flex;  
+  align-items: center;
+  justify-content:center;
 }
 
-.center{
-  display: flex;
-  justify-content: center;
+.inputView{
+  width: 70%;
+  height: 40px;
+  text-align: center;
 }
 
 .arrow{
   width: 20px;
   height: 20px;
-  padding: 4px;
+  padding: 6px;
 }
 
 .circle-icon {
-    background: #000000;
-    border-radius: 50%;
+  background: #000000;
+  border-radius: 50%;
 }

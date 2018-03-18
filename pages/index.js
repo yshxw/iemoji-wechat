@@ -3,7 +3,8 @@
  * 当前正在编辑的句子
  */
 var index = 0;
-var placeholders = ['第1句话', '第2句话', '第3句话', '第4句话', '第5句话', '第6句话', '第7句话', '第8句话', '第9句话'];
+var placeHolders = ['第1句话', '第2句话', '第3句话', '第4句话', '第5句话', '第6句话', '第7句话', '第8句话', '第9句话'];
+var sentences = new Array();
 
 Page({
 
@@ -14,24 +15,34 @@ Page({
     })
   },   
 
-  nextSentence: function() {
-    if(index == placeholders.length - 1) {
+  nextSentence: function(text) {
+    if (index == placeHolders.length - 1) {
       // 数据填写完毕
       this.make_gif()
     }else {
+      sentences[index] = text;
+      index++;      
       this.setData({
-        placeholder:placeholders[++index]
+        textInfo: '第' + (index+1) + '句话',
+        preDisplay: 'visible'
       })
-      console.log(this.data.placeholder);
+      console.log(this.data.textInfo);
     }
   },
 
-  preSentence: function() {
+  preSentence: function(text) {
     if (index > 0) {
+      sentences[index] = text; 
+      index--;           
       this.setData({
-        placeholder: placeholders[--index]
+        textInfo: '第' + (index+1) + '句话',
       })
-      console.log(this.data.placeholder);
+      if(index == 0) {
+        this.setData({
+          preDisplay: 'hidden'
+        })
+      }
+      console.log(this.data.textInfo);
     }
   },
 
@@ -41,7 +52,7 @@ Page({
   make_gif: function() {
     var that = this;
     wx.request({
-      url: 'http://101.200.36.156/',
+      url: 'https://miniapp.codedragon.tech',
       data: {
         "font_size": "47",
         "sentences": [
@@ -62,6 +73,7 @@ Page({
         that.setData({
           'imgalist[0]':res.data,
         })
+        that.previewImage(res.data)
         console.log(res.data)
       }
     })
@@ -74,7 +86,9 @@ Page({
    */
   data: {
     imgalist: ['https://sorry.xuty.tk/cache/3cfab5c16f5148f88b72640c51cefde4.gif'],
-    placeholder: '第1句话'
+    textInfo: '第1句话',
+    ssentence: '',
+    preDisplay: 'hidden'
   },
 
   /**
