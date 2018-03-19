@@ -10,4 +10,7 @@ mode='aspectFit' class='gif' id="emoji" bindtap="previewImage"></image>
       <input class="inputView" name="sentence" bindinput='bindKeyInput' type='text' value='{{sentence}}' focus='true' placeholder='{{placeholder}}'></input>
       <image class='arrow circle-icon' src='../resource/next.png' id='btn_next' catchtap='nextSentence'></image>
   </view>
+  <view >
+    <loading wx:if="{{showLoading}}">制作中</loading>
+</view>
 </view>

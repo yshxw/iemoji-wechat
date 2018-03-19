@@ -3,7 +3,7 @@
  * 当前正在编辑的句子
  */
 var index = 0;
-var placeholders = ['就算你是一流设计师', '就算你画图再牛逼', '我叫你改图你就得改图', '毕竟我是甲方', '甲方了不起啊','嗯~','sorry，甲方真的了不起', '以后叫他天天改图', '天天改图，天天改'];
+var placeholders = ['就算你是一流设计师', '就算你画图再牛逼', '我叫你改图你就得改图', '毕竟我是甲方', '嗯~', '甲方了不起啊','sorry，甲方真的了不起', '以后叫他天天改图', '天天改图，天天改'];
 console.log(placeholders.length);
 var sentences = Array(placeholders.length).fill('')
 console.log(sentences.length);
@@ -54,26 +54,34 @@ Page({
    * 发送请求
    */
   make_gif: function() {
+    var tmpSentences = new Array(placeholders.length);
     for(var i = 0; i < placeholders.length; i++) {
       if(sentences[i] == '') {
-        sentences[i] = placeholders[i];
+        tmpSentences[i] = placeholders[i];
+      }else {
+        tmpSentences[i] = sentences[i];
       }
     }
-    console.log(JSON.stringify(sentences));
+    console.log(JSON.stringify(tmpSentences));
     var that = this;
+    // 显示加载中
+    this.setData({
+      showLoading:true
+    })
     wx.request({
       url: 'https://miniapp.codedragon.tech',
       data: {
         "font_size": "47",
-        "sentences": sentences
+        "sentences": tmpSentences
       },
       method: 'POST',
       success: function(res) {
         that.setData({
           'imgalist[0]':res.data,
-        })
-        that.previewImage(res.data)
-        console.log(res.data)
+          showLoading:false,
+        });
+        that.previewImage(res.data);
+        console.log(res.data);
       }
     })
     console.log('make gif')
@@ -89,12 +97,13 @@ Page({
    * 页面的初始数据
    */
   data: {
-    imgalist: ['https://t1.aixinxi.net/o_1c8u0i30i14c3c8c61mn5b6ksa.gif-w.jpg'],
+    imgalist: ['https://t1.aixinxi.net/o_1c8u9vpgh16o1eirkvj1gor1foba.gif-j.jpg'],
     textInfo: '1 / 9',
     sentence: '',
     placeholder:placeholders[0],
     preDisplay: 'hidden',
     input_focus: false,
+    showLoading: false,
   },
 
   /**
