@@ -7,7 +7,7 @@ mode='aspectFit' class='gif' id="emoji" bindtap="previewImage"></image>
   </view>
   <view class='inputArea'> 
       <image class='arrow circle-icon' src='../resource/pre.png' id='btn_pre' bindtap='preSentence' style='visibility:{{preDisplay}};'/>
-      <input class="inputView" name="sentence"></input>
-      <image class='arrow circle-icon' src='../resource/next.png' id='btn_next' bindtap='nextSentence'></image>
+      <input class="inputView" name="sentence" bindinput='bindKeyInput' type='text' value='{{sentence}}' focus='true' placeholder='{{placeholder}}'></input>
+      <image class='arrow circle-icon' src='../resource/next.png' id='btn_next' catchtap='nextSentence'></image>
   </view>
 </view>
