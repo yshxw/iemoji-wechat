@@ -18,11 +18,11 @@ Page({
   },
 
   nextSentence: function() {
+    sentences[index] = this.data.sentence;
     if (index == placeholders.length - 1) {
       // 数据填写完毕
       this.make_gif()
     }else {
-      sentences[index] = this.data.sentence;
       console.log(this.data.sentence);
       index++;
       this.setData({
