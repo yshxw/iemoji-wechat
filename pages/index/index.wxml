@@ -1,0 +1,11 @@
+<!--pages/index/index.wxml-->
+<scroll-view scroll-y="true">
+    <view style="width:100%;">
+
+        <view class= "card" wx:for = "{{templates}}" data-src='{{index}}' bindtap='onItemClick'>
+            <image class= "image" mode="widthFix" src="{{item.image_url}}"/>
+            <view class="title">{{item.title}}</view>
+        </view>
+
+    </view>
+</scroll-view>

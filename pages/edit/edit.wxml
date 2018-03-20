@@ -1,4 +1,4 @@
-<!--pages/index.wxml-->
+<!--pages/edit/edit.wxml-->
 <image src='{{imgalist[0]}}' data-src='{{imgalist[0]}}'
 mode='aspectFit' class='gif' id="emoji" bindtap="previewImage"></image>
 <view>
@@ -6,9 +6,9 @@ mode='aspectFit' class='gif' id="emoji" bindtap="previewImage"></image>
        <text style="display:block" id='text_info'>{{textInfo}}</text>
   </view>
   <view class='inputArea'> 
-      <image class='arrow circle-icon' src='../resource/pre.png' id='btn_pre' bindtap='preSentence' style='visibility:{{preDisplay}};'/>
+      <image class='arrow circle-icon' src='../../resource/pre.png' id='btn_pre' bindtap='preSentence' style='visibility:{{preDisplay}};'/>
       <input class="inputView" name="sentence" bindinput='bindKeyInput' type='text' value='{{sentence}}' focus='true' placeholder='{{placeholder}}'></input>
-      <image class='arrow circle-icon' src='../resource/next.png' id='btn_next' catchtap='nextSentence'></image>
+      <image class='arrow circle-icon' src='../../resource/next.png' id='btn_next' catchtap='nextSentence'></image>
   </view>
   <view >
     <loading wx:if="{{showLoading}}">制作中</loading>

@@ -1,12 +1,11 @@
-// pages/index.js
+// pages/edit/edit.js
 /**
  * 当前正在编辑的句子
  */
 var index = 0;
-var placeholders = ['就算你是一流设计师', '就算你画图再牛逼', '我叫你改图你就得改图', '毕竟我是甲方', '嗯~', '甲方了不起啊','sorry，甲方真的了不起', '以后叫他天天改图', '天天改图，天天改'];
-console.log(placeholders.length);
-var sentences = Array(placeholders.length).fill('')
-console.log(sentences.length);
+var placeholders = [];
+var sentences = [];
+var template_name;
 
 Page({
 
@@ -69,10 +68,13 @@ Page({
       showLoading:true
     })
     wx.request({
-      url: 'https://miniapp.codedragon.tech',
+      url: 'https://miniapp.codedragon.tech/make_gif',
       data: {
-        "font_size": "47",
-        "sentences": tmpSentences
+        "subtitle_data": {
+            "font_size": "47",
+            "sentences": tmpSentences
+        },
+        "template": template_name
       },
       method: 'POST',
       success: function(res) {
@@ -98,11 +100,10 @@ Page({
    */
   data: {
     imgalist: ['https://t1.aixinxi.net/o_1c8u9vpgh16o1eirkvj1gor1foba.gif-j.jpg'],
-    textInfo: '1 / 9',
+    textInfo: '',
     sentence: '',
-    placeholder:placeholders[0],
+    placeholder: '',
     preDisplay: 'hidden',
-    input_focus: false,
     showLoading: false,
   },
 
@@ -110,7 +111,25 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    var that = this;
+    wx.getStorage({
+      key: 'template',
+      success: function(res) {
+        placeholders = res.data.placeholders;
+        sentences = Array(placeholders.length).fill('');
+        index = 0;
+        template_name = res.data.template;
+        that.setData({
+          'imgalist[0]': res.data.gif_url,
+          textInfo: 1 + ' / ' + placeholders.length,
+          sentence: '',
+          placeholder: placeholders[0],
+          showLoading: false,
+        });
+        console.log(res.data);
+        console.log(typeof(res.data));
+      },
+    })
   },
 
   /**

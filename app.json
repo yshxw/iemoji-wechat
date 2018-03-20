@@ -1,11 +1,12 @@
 {
   "window": {
-      "navigationBarTextStyle": "black",
-      "navigationBarTitleText": "sorry,没钱也可以为所欲为",
-      "navigationBarBackgroundColor": "#F8F8F8",
-      "backgroundColor": "#F8F8F8"
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "sorry,没钱也可以为所欲为",
+    "navigationBarBackgroundColor": "#F8F8F8",
+    "backgroundColor": "#F8F8F8"
   },
   "pages": [
-    "pages/index"
+    "pages/index/index",
+    "pages/edit/edit"
   ]
 }

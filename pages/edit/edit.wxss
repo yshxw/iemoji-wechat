@@ -1,4 +1,4 @@
-/* pages/index.wxss */
+/* pages/edit/edit.wxss */
 .gif {
     display: block;
     margin-left: auto;
