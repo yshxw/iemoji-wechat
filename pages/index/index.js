@@ -88,19 +88,15 @@ Page({
   onItemClick: function(e) {
     var index = e.currentTarget.dataset.src;
     var template = this.data.templates[index];
+    wx.setStorage({
+      key: 'template',
+      data: template,
+    })
     if (this.data.is_examining) {
-      wx.previewImage({
-        current: template.gif_url,
-        urls: [template.gif_url],
-        success: function(res) {},
-        fail: function(res) {},
-        complete: function(res) {},
+      wx.navigateTo({
+        url: '../detail/detail',
       })
     }else {
-      wx.setStorage({
-        key: 'template',
-        data: template,
-      })
       wx.navigateTo({
         url: '../edit/edit',
       })

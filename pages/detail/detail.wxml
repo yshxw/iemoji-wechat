@@ -1,0 +1,5 @@
+<!--pages/detail/detail.wxml-->
+<text style='display:block;text-align:center;margin-top:20px;margin-bottom:20px;font-size:18px;font-style:italic'>{{title}}</text>
+<image src='{{imgalist[0]}}' data-src='{{imgalist[0]}}'
+mode='aspectFit' class='gif' id="emoji" bindtap="previewImage"></image>
+<text style='display:block;margin:20px;margin-top:5px;font-size:14px;'>{{detail}}</text>
