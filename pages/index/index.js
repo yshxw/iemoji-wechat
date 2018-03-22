@@ -5,7 +5,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    templates: []
+    templates: [],
+    is_examining: true
   },
 
   /**
@@ -77,7 +78,8 @@ Page({
           tmp.push(template)
         }
         that.setData({
-          templates: tmp
+          templates: tmp,
+          is_examining: res.data.is_examining
         })   
       }
     })
@@ -86,12 +88,22 @@ Page({
   onItemClick: function(e) {
     var index = e.currentTarget.dataset.src;
     var template = this.data.templates[index];
-    wx.setStorage({
-      key: 'template',
-      data: template,
-    })
-    wx.navigateTo({
-      url: '../edit/edit',
-    })
+    if (this.data.is_examining) {
+      wx.previewImage({
+        current: template.gif_url,
+        urls: [template.gif_url],
+        success: function(res) {},
+        fail: function(res) {},
+        complete: function(res) {},
+      })
+    }else {
+      wx.setStorage({
+        key: 'template',
+        data: template,
+      })
+      wx.navigateTo({
+        url: '../edit/edit',
+      })
+    }
   }
 })
