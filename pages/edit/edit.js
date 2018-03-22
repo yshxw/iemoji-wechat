@@ -71,7 +71,6 @@ Page({
       url: 'https://miniapp.codedragon.tech/make_gif',
       data: {
         "subtitle_data": {
-            "font_size": "47",
             "sentences": tmpSentences
         },
         "template": template_name
