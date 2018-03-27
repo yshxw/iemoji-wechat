@@ -30,5 +30,8 @@
 # 打赏
 为了更好的满足小程序的需求，购买了学生服务器，由于已经大四，学生优惠还有两个多月，如果您喜欢这个小程序，可以给这个服务器续点命。
 
+微信：
 ![微信](http://t1.aixinxi.net/o_1c9il1vas1iq0o7b1cqk1gsd1l5a.png-j.jpg)
+
+支付宝：
 ![支付宝](http://t1.aixinxi.net/o_1c9il4o101cge1hd51i72jbg4pva.png-j.jpg)
