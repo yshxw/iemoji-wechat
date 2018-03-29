@@ -1,4 +1,5 @@
 // pages/index/index.js
+var version = '1.0.2';
 Page({
 
   /**
@@ -72,7 +73,7 @@ Page({
     var that = this;
     var tmp = [];
     wx.request({
-      url: 'https://miniapp.codedragon.tech/get_templates',
+      url: 'https://miniapp.codedragon.tech/get_templates_version?' + version,
       success: function (res) {
         for (var template of res.data.templates){
           tmp.push(template)
