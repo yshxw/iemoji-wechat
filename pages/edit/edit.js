@@ -27,13 +27,14 @@ Page({
       this.setData({
         textInfo: (index + 1) + ' / ' + placeholders.length,
         preDisplay: 'visible',
-        sentence: '',
+        sentence: sentences[index],
         placeholder: placeholders[index],
       })
     }
   },
 
   preSentence: function() {
+    sentences[index] = this.data.sentence;
     if (index > 0) {
       index--;
       this.setData({
