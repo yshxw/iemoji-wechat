@@ -6,6 +6,7 @@
     box-shadow: 0px 3px 1px #cccccc;
     margin: 2%;
     width: 44%;
+    height: 22%;
     display: inline-block;
 }
 
